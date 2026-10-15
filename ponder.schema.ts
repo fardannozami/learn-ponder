@@ -1,6 +1,10 @@
 import { onchainTable } from "ponder";
 
-export const example = onchainTable("example", (t) => ({
+export const transfer = onchainTable("transfer", (t) => ({
   id: t.text().primaryKey(),
-  name: t.text(),
+  hash: t.hex(),
+  from: t.hex(),
+  to: t.hex(),
+  timestamp: t.bigint(),
+  amount: t.bigint(),
 }));

@@ -1,20 +1,19 @@
 import { createConfig } from "ponder";
-
-import { ExampleContractAbi } from "./abis/ExampleContractAbi";
+import { mockTokenABI } from "./abis/abi";
 
 export default createConfig({
   chains: {
-    mainnet: {
-      id: 1,
-      rpc: process.env.PONDER_RPC_URL_1!,
+    baseSepolia: {
+      id: 84532,
+      rpc: "https://sepolia.base.org",
     },
   },
   contracts: {
-    ExampleContract: {
-      chain: "mainnet",
-      abi: ExampleContractAbi,
+    SawitToken: {
+      chain: "baseSepolia",
+      abi: mockTokenABI,
       address: "0x0000000000000000000000000000000000000000",
-      startBlock: 1234567,
+      startBlock: 0,
     },
   },
 });
